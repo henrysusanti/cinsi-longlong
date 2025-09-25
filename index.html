@@ -14,7 +14,20 @@ document.write(unescape('%3C%6C%69%6E%6B%20%72%65%6C%3D%22%73%74%79%6C%65%73%68%
 
 </script>
 </head>
-<body>
+<body><div id="clock" style="font-size:20px; font-weight:bold; margin: 10px 0;"></div>
+
+<script>
+  function updateClock() {
+    var now = new Date();
+    var hours = now.getHours().toString().padStart(2, '0');
+    var minutes = now.getMinutes().toString().padStart(2, '0');
+    var seconds = now.getSeconds().toString().padStart(2, '0');
+    document.getElementById('clock').textContent = hours + ':' + minutes + ':' + seconds;
+  }
+  setInterval(updateClock, 1000);
+  updateClock();
+</script>
+
   <div class="container-fluid">
     <div class="row">
             <div class="col-md-12 text-bg-warning text-center fs-8 p-2">
